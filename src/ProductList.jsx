@@ -6,7 +6,7 @@ import { addItem } from './CartSlice';
 
 function ProductList({ onHomeClick }) {
     const dispatch = useDispatch();
-    const cartItems = useSelector(state => state.cart.cartItems);
+    const cartItems = useSelector(state => state.cart.items);
     const [showCart, setShowCart] = useState(false);
     const [showPlants, setShowPlants] = useState(false);
     const [addedToCart, setAddedToCart] = useState({});
@@ -294,8 +294,8 @@ function ProductList({ onHomeClick }) {
                 <div className="product-grid">
                     {plantsArray.map((category, index) => (
                         <div key={index}>
-                            <h1>
-                                <div>{category.category}</div>
+                            <h1 className='plantname_heading' >
+                                <div className='plant_heading'>{category.category}</div>
                             </h1>
                             <div className="product-list">
                                 {category.plants.map((plant, plantIndex) => (
@@ -304,8 +304,11 @@ function ProductList({ onHomeClick }) {
                                     <div className="product-title">{plant.name}</div>
                                     <div className="product-description">{plant.description}</div>
                                     <div className="product-cost">{plant.cost}</div>
-                                    <button className="product-button" onClick={() => handleAddToCart(plant)}>
-                                        Add to Cart
+                                    <button
+                                        className={`product-button ${cartItems.some(item => item.id === plant.id) ? 'added-to-cart' : ''}`}
+                                        onClick={() => handleAddToCart(plant)}
+                                        disabled={cartItems.some(item => item.id === plant.id)}> 
+                                        {cartItems.some(item => item.id === plant.id) ? 'Added to Cart' : 'Add to Cart'}
                                     </button>
                                     </div>
                                 ))}

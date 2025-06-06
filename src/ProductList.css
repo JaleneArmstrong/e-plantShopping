@@ -47,6 +47,7 @@ body {
     align-items: center;
     justify-content: center;
 }
+
 .product-list {
     display: flex;
     flex-wrap: wrap;
@@ -122,6 +123,7 @@ body {
     padding: 5px 10px;
     border-radius: 0 0 0 5px;
 }
+
 .tag_home_link{
     display: flex;
     /* background-color: red; */
@@ -133,12 +135,15 @@ body {
     text-decoration: none;
     font-size: 20px;
 }
+
 .tag_home_link h3{
     font-size: 30px;
 }
+
 .tag a{
     text-decoration: none;
 }
+
 .tag {
     width: 400px;
     display: flex;
@@ -185,9 +190,8 @@ body {
     border: 1px solid rgb(5, 4, 4);
     border-left: none;
     border-right: none;
-
-    
 }
+
 /* Add Media Query for responsiveness */
 @media (max-width: 768px) {
     .product-card {
